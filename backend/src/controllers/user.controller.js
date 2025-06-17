@@ -15,7 +15,7 @@ export async function getRecommendedUsers(req, res) {
     });
     res.status(200).json(recommendedUsers);
   } catch (error) {
-    console.error("Error fetching recommended users:", error);
+    console.error("Error in getRecommendedUsers controller:", error.message);
     res.status(500).json({ message: "Internal server error" });
   }
 }
@@ -31,7 +31,7 @@ export async function getMyFriends(req, res) {
 
     res.status(200).json(user.friends);
   } catch (error) {
-    console.error("Error in getMyfriends controller:", error);
+    console.error("Error in getMyfriends controller:", error.message);
     res.status(500).json({ message: "Internal server error" });
   }
 }
@@ -78,7 +78,7 @@ export async function sendFriendRequest(req, res) {
 
     res.status(201).json(friendRequest);
   } catch (error) {
-    console.error("Error sending friend request:", error);
+    console.error("Error in sendFriendRequest controller:", error.message);
     res.status(500).json({ message: "Internal server error" });
   }
 }
